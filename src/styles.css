@@ -40,30 +40,6 @@ span {
 .divide {
   font-size: 40px;
 }
-.cel {
-  background-color: rgb(218, 236, 246);
-  border: lightblue;
-  border-style: solid;
-  border-radius: 6px;
-  padding: 5px;
-}
-.cel:hover {
-  font-size: 44px;
-  cursor: pointer;
-  background-color: whitesmoke;
-}
-.far {
-  background-color: rgb(218, 236, 246);
-  border: lightblue;
-  border-style: solid;
-  border-radius: 6px;
-  padding: 5px;
-}
-.far:hover {
-  font-size: 44px;
-  cursor: pointer;
-  background-color: whitesmoke;
-}
 
 .date {
   text-align: left;
@@ -124,6 +100,7 @@ span {
   border-radius: 6px;
   padding: 0px;
   background: none;
+  margin-top: 15px;
 }
 .col-sm-7:hover {
   border-color: #74c0f9;
