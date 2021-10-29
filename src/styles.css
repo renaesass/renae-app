@@ -12,6 +12,10 @@ h5 {
   font-size: 15px;
   text-align: center;
 }
+h6 {
+  margin-left: 65px;
+}
+
 body {
   background-color: #c6defb;
   margin-top: 10px;
