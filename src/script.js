@@ -58,5 +58,5 @@ function entertext(event) {
   let city = document.querySelector("#enter-city").value;
   searchCity(city);
 }
-let searchForm = document.querySelector("#form-control");
+let searchForm = document.querySelector("#form-enter");
 searchForm.addEventListener("submit", entertext);
