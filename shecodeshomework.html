@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playball&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="current col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h1 id="my-city" class="card-title">City</h1>
+
+              <p1 class="date card-text">Friday, September 24th</p1>
+            </div>
+          </div>
+        </div>
+        <div class="currenttemp col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h2 class="card-title" id="now-temp"></h2>
+
+              <p class="card-text"></p>
+              <img
+                src="animated/cloudy-night-2.svg"
+                class="pic card-img-top"
+                alt="..."
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="input row g-3"><form id="form-enter">
+        <div class="col-sm-7">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="City"
+            aria-label="City"
+            id="enter-city"
+          />
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+      <section>5 Day Forecast...</section>
+
+      <div class="row">
+        <div class="forecast col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Saturday</h5>
+              <p class="card-text">10°</p>
+              <img
+                src="animated/day.svg"
+                class="fcimg card-img-top"
+                alt="..."
+              />
+            </div>
+          </div>
+        </div>
+        <div class="forecast col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Sunday</h5>
+              <p class="card-text">12°</p>
+              <img
+                src="animated/thunder.svg"
+                class="fcimg card-img-top"
+                alt="..."
+              />
+            </div>
+          </div>
+        </div>
+        <div class="forecast col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Monday</h5>
+              <p class="card-text">18°</p>
+              <img
+                src="animated/rainy-1.svg"
+                class="fcimg card-img-top"
+                alt="..."
+              />
+            </div>
+          </div>
+        </div>
+        <div class="forecast col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Tuesday</h5>
+              <p class="card-text">22°</p>
+              <img
+                src="animated/cloudy.svg"
+                class="fcimg card-img-top"
+                alt="..."
+              />
+            </div>
+          </div>
+        </div>
+        <div class="forecast col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Wednesday</h5>
+              <p class="card-text">19°</p>
+              <img
+                src="animated/cloudy-day-2.svg"
+                class="fcimg card-img-top"
+                alt="..."
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
