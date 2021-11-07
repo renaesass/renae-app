@@ -35,6 +35,7 @@ let minutes = now.getMinutes();
 p1.innerHTML = `${day}, ${date} ${month}, ${year}, ${hour}:${minutes}`;
 
 function showWeather(response) {
+  celsiusTemperature = response.data.main.temp;
   document.querySelector("#my-city").innerHTML = response.data.name;
 
   document.querySelector("#now-temp").innerHTML =
@@ -44,6 +45,9 @@ function showWeather(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+  document.querySelector("#cond").innerHTML =
+    response.data.weather[0].description;
+
   let mainicon = document.querySelector("#main-icon");
   mainicon.setAttribute(
     "src",
@@ -69,5 +73,27 @@ function entertext(event) {
   let city = document.querySelector("#enter-city").value;
   searchCity(city);
 }
+function showfartemp(event) {
+  event.preventDefault();
+
+  let fartemperature = (celsiusTemperature * 9) / 5 + 32;
+  let h2 = document.querySelector("#now-temp");
+  h2.innerHTML = Math.round(fartemperature) + "°";
+}
+
+function showceltemp(event) {
+  event.preventDefault();
+  let h2 = document.querySelector("#now-temp");
+  h2.innerHTML = Math.round(celsiusTemperature) + "°";
+}
+
+let celsiusTemperature = null;
+
 let searchForm = document.querySelector("#form-enter");
 searchForm.addEventListener("submit", entertext);
+
+let farlink = document.querySelector("#unitfarlink");
+farlink.addEventListener("click", showfartemp);
+
+let cellink = document.querySelector("#unitcellink");
+cellink.addEventListener("click", showceltemp);
