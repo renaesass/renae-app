@@ -34,32 +34,55 @@ let minutes = now.getMinutes();
 
 p1.innerHTML = `${day}, ${date} ${month}, ${year}, ${hour}:${minutes}`;
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  forecast.forEach(function (forecastday, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
         <div class= "forecast col" id = "forecast" >
           <div class="card h-100">
             <div class="card-body">
-              <div class="forecast-day">${day}</div>
-              <p class="card-text">12°/ 10°</p>
-              <img
-                src="animated/day.svg"
-                class="fcimg card-img-top"
-                alt="..."
+              <div class="forecast-day">${formatDay(forecastday.dt)}</div>
+              <p class="card-text">${Math.round(
+                forecastday.temp.max
+              )}°/ ${Math.round(forecastday.temp.min)}°</p>
+              <img id = "fcimg"
+                src="http://openweathermap.org/img/wn/${
+                  forecastday.weather[0].icon
+                }@2x.png"
+          alt="" width = "90" height "100" id
               />
             </div>
           </div>
         </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function showforecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "ca0db41e2e878c74a1dfc7ffece370d4";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+  console.log(apiUrl);
 }
 
 function showWeather(response) {
@@ -83,7 +106,7 @@ function showWeather(response) {
   );
   mainicon.setAttribute("alt", response.data.weather[0].icon);
 
-  displayForecast();
+  showforecast(response.data.coord);
 }
 
 function searchCity(event) {
