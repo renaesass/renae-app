@@ -34,6 +34,34 @@ let minutes = now.getMinutes();
 
 p1.innerHTML = `${day}, ${date} ${month}, ${year}, ${hour}:${minutes}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+        <div class= "forecast col" id = "forecast" >
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="forecast-day">${day}</div>
+              <p class="card-text">12°/ 10°</p>
+              <img
+                src="animated/day.svg"
+                class="fcimg card-img-top"
+                alt="..."
+              />
+            </div>
+          </div>
+        </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showWeather(response) {
   celsiusTemperature = response.data.main.temp;
   document.querySelector("#my-city").innerHTML = response.data.name;
@@ -54,6 +82,8 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   mainicon.setAttribute("alt", response.data.weather[0].icon);
+
+  displayForecast();
 }
 
 function searchCity(event) {
